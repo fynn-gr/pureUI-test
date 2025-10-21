@@ -1,0 +1,22 @@
+{
+  "name": "",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/solid-js": "^5.1.1",
+    "@astrojs/svelte": "^7.2.0",
+    "astro": "^5.14.7",
+    "solid-js": "^1.9.9",
+    "svelte": "^5.41.1",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "sass": "^1.93.2"
+  }
+}

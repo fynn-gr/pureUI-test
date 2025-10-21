@@ -1,0 +1,17 @@
+* {
+  font-family: Inter;
+}
+
+h1 {
+  margin: 24px;
+}
+
+.topbars {
+  margin: 32px;
+  display: grid;
+  gap: 32px;
+}
+
+.topbars main {
+  
+}
