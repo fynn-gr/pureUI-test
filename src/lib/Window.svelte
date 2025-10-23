@@ -3,15 +3,15 @@
 	import WinButtonsMS from "../pureUI/components/WinButtonsMS.svelte";
 	import TopBarWebMenu from "../pureUI/components/TopBarWebMenu.svelte";
 	import TopBarButton from "@/pureUI/components/TopBarButton.svelte";
-	import { onMount } from "svelte";
 	import TopBarDropdown from "@/pureUI/components/TopBarDropdown.svelte";
 	import TopBarDropdownItem from "@/pureUI/components/TopBarDropdownItem.svelte";
 	import { sidebar } from "@/ts/Stores.svelte";
+	import Sidebar from "@/pureUI/components/Sidebar.svelte";
 
 	interface Props {
 		theme: "light" | "dark";
 		type: string;
-		uiPlatform: "mac" | "win" | "web";
+		uiPlatform: "mac" | "win" | "web" | "tahoe";
 	}
 	let { theme, type, uiPlatform }: Props = $props();
 </script>
@@ -19,7 +19,7 @@
 <main class={`window-body ${uiPlatform} ${theme}`}>
 	<div class={`topbar ${type}`}>
 		<div class="topbar-container">
-			{#if uiPlatform == "mac"}
+			{#if uiPlatform == "mac" || uiPlatform == "tahoe"}
 				<WinButtonsMac></WinButtonsMac>
 			{/if}
 
@@ -57,8 +57,10 @@
 			{/if}
 		</div>
 	</div>
-	<div class="sidebar" style={`width: ${$sidebar ? 140 : 0}px`}></div>
+	<Sidebar width={200} show={$sidebar}></Sidebar>
 	<div class="content"></div>
+
+  <div class="window-rim"></div>
 </main>
 
 <style lang="scss" scoped>
@@ -72,17 +74,17 @@
 
 		position: relative;
 		width: 500px;
-		height: 100px;
+		height: var(--height);
 		border-radius: var(--win-corner);
-		//background-color: var(--properties-BG);
-		box-shadow: 0 8px 64px rgba(0, 0, 0, 0.455);
-
-    --sidebar-BG: rgba(127, 127, 127, 0.415);
+    background-color: transparent;
+    backdrop-filter: blur(32px);
+    box-shadow: 0 8px 42px rgba(0, 0, 0, 0.455),
+                0 0 1.5px black;
 
     .sidebar {
       grid-area: sidebar;
-      background-color: var(--sidebar-BG);
-      //backdrop-filter: blur(32px);
+      background-color: var(--navbar-BG);
+      backdrop-filter: blur(32px);
     }
 
     .content {
@@ -95,6 +97,13 @@
       top: 0;
       left: 0;
       right: 0;
+    }
+
+    .window-rim {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      inset: 0;
     }
 	}
 </style>

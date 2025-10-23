@@ -12,14 +12,16 @@ h1 {
 }
 
 .topbars {
-  margin: 32px;
+  padding: 32px;
+  width: max-content;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 42px;
+  background-image: url("./bg-1.jpg");
 
-  .colum{
+  .row{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: inherit;
   }
 }

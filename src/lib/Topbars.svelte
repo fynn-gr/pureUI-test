@@ -4,54 +4,82 @@
 	import WinButtonsMS from "../pureUI/components/WinButtonsMS.svelte";
 	import TopBarWebMenu from "../pureUI/components/TopBarWebMenu.svelte";
 	import Window from "./Window.svelte";
+
+	let height: number = $state(100);
 </script>
 
 <!-- svelte-ignore a11y_consider_explicit_label -->
 <!-- svelte-ignore a11y_missing_attribute -->
 <h2>Top Bars</h2>
-<div class="topbars">
-	<div class="colum">
-		<!-- Mac -->
+<input
+	type="range"
+	name="size"
+	id=""
+	min="60"
+	max="260"
+	step="40"
+	bind:value={height}
+/>
+<div class="topbars" style={`--height: ${height}px;`}>
+	<h3>macOS</h3>
+	<div class="row">
+		<!-- Mac default -->
 		<Window theme="light" type="default" uiPlatform="mac" />
+		<Window theme="dark" type="default" uiPlatform="mac" />
+	</div>
+	<div class="row">
+		<!-- Mac buttonbar-->
 		<Window theme="light" type="buttonbar" uiPlatform="mac" />
+		<Window theme="dark" type="buttonbar" uiPlatform="mac" />
+	</div>
+	<div class="row">
+		<!-- Mac toolbar-->
 		<Window theme="light" type="toolbar" uiPlatform="mac" />
-
+		<Window theme="dark" type="toolbar" uiPlatform="mac" />
+	</div>
+	<h3>macOS Tahoe</h3>
+	<div class="row">
+		<!-- Tahoe -->
+		<Window theme="light" type="default" uiPlatform="tahoe" />
+		<Window theme="dark" type="default" uiPlatform="tahoe" />
+	</div>
+	<div class="row">
+		<Window theme="light" type="buttonbar" uiPlatform="tahoe" />
+		<Window theme="dark" type="buttonbar" uiPlatform="tahoe" />
+	</div>
+	<div class="row">
+		<Window theme="light" type="toolbar" uiPlatform="tahoe" />
+		<Window theme="dark" type="toolbar" uiPlatform="tahoe" />
+	</div>
+	<h3>Windows</h3>
+	<div class="row">
 		<!-- Win -->
 		<Window theme="light" type="default" uiPlatform="win" />
+		<Window theme="dark" type="default" uiPlatform="win" />
+	</div>
+	<div class="row">
 		<Window theme="light" type="buttonbar" uiPlatform="win" />
+		<Window theme="dark" type="buttonbar" uiPlatform="win" />
+	</div>
+	<div class="row">
 		<Window theme="light" type="toolbar" uiPlatform="win" />
-
+		<Window theme="dark" type="toolbar" uiPlatform="win" />
+	</div>
+	<h3>Web</h3>
+	<div class="row">
 		<!-- Web -->
 		<Window theme="light" type="default" uiPlatform="web" />
-		<Window theme="light" type="buttonbar" uiPlatform="web" />
-		<Window theme="light" type="toolbar" uiPlatform="web" />
-	</div>
-
-	<!-- Dark Theme -->
-	<div class="colum">
-		<!-- Mac -->
-		<Window theme="dark" type="default" uiPlatform="mac" />
-		<Window theme="dark" type="buttonbar" uiPlatform="mac" />
-		<Window theme="dark" type="toolbar" uiPlatform="mac" />
-
-		<!-- Win -->
-		<Window theme="dark" type="default" uiPlatform="win" />
-		<Window theme="dark" type="buttonbar" uiPlatform="win" />
-		<Window theme="dark" type="toolbar" uiPlatform="win" />
-
-		<!-- Web -->
 		<Window theme="dark" type="default" uiPlatform="web" />
+	</div>
+	<div class="row">
+		<Window theme="light" type="buttonbar" uiPlatform="web" />
 		<Window theme="dark" type="buttonbar" uiPlatform="web" />
+	</div>
+	<div class="row">
+		<Window theme="light" type="toolbar" uiPlatform="web" />
 		<Window theme="dark" type="toolbar" uiPlatform="web" />
 	</div>
 </div>
 
-<style lang="scss" scoped>
-	main.window-body {
-		position: relative;
-		width: 400px;
-		height: 100px;
-		border-radius: var(--win-corner);
-		box-shadow: 0 8px 64px rgba(0, 0, 0, 0.455);
-	}
+<style lang="scss">
 </style>
