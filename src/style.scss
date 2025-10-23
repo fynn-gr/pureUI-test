@@ -1,0 +1,30 @@
+* {
+  font-family: Inter;
+}
+
+body {
+  position: relative !important;
+  overflow: scroll !important;
+}
+
+h1 {
+  margin: 24px;
+}
+
+.topbars {
+  margin: 32px;
+  display: flex;
+  flex-direction: row;
+  gap: 42px;
+
+  .colum{
+    display: flex;
+    flex-direction: column;
+    gap: inherit;
+  }
+}
+
+
+.topbars main {
+  
+}

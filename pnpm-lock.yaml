@@ -14,6 +14,9 @@ importers:
       '@astrojs/svelte':
         specifier: ^7.2.0
         version: 7.2.0(@types/node@24.9.0)(astro@5.14.7(@types/node@24.9.0)(rollup@4.52.5)(sass@1.93.2)(typescript@5.9.3))(sass@1.93.2)(svelte@5.41.1)(typescript@5.9.3)
+      '@tauri-apps/api':
+        specifier: ^2.9.0
+        version: 2.9.0
       astro:
         specifier: ^5.14.7
         version: 5.14.7(@types/node@24.9.0)(rollup@4.52.5)(sass@1.93.2)(typescript@5.9.3)
@@ -701,6 +704,9 @@ packages:
 
   '@swc/helpers@0.5.17':
     resolution: {integrity: sha512-5IKx/Y13RsYd+sauPb2x+U/xZikHjolzfuDgTAl/Tdf3Q8rslRvC19NKDLgAJQ6wsqADk10ntlv08nPFw/gO/A==}
+
+  '@tauri-apps/api@2.9.0':
+    resolution: {integrity: sha512-qD5tMjh7utwBk9/5PrTA/aGr3i5QaJ/Mlt7p8NilQ45WgbifUNPyKWsA63iQ8YfQq6R8ajMapU+/Q8nMcPRLNw==}
 
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
@@ -2462,6 +2468,8 @@ snapshots:
   '@swc/helpers@0.5.17':
     dependencies:
       tslib: 2.8.1
+
+  '@tauri-apps/api@2.9.0': {}
 
   '@types/babel__core@7.20.5':
     dependencies:

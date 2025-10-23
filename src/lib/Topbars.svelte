@@ -1,68 +1,49 @@
 <script lang="ts">
-	import "../../../scss/index.scss";
+	import "../pureUI/scss/index.scss";
 	import WinButtonsMac from "../pureUI/components/WinButtonsMac.svelte";
 	import WinButtonsMS from "../pureUI/components/WinButtonsMS.svelte";
+	import TopBarWebMenu from "../pureUI/components/TopBarWebMenu.svelte";
+	import Window from "./Window.svelte";
 </script>
 
 <!-- svelte-ignore a11y_consider_explicit_label -->
 <!-- svelte-ignore a11y_missing_attribute -->
+<h2>Top Bars</h2>
 <div class="topbars">
-  <!-- Mac -->
-	<main class="window-body mac dark">
-		<div class="topbar default">
-			<div class="topbar-container">
-				<WinButtonsMac></WinButtonsMac>
-			</div>
-		</div>
-	</main>
-	<main class="window-body mac dark">
-		<div class="topbar buttonbar">
-			<div class="topbar-container">
-				<WinButtonsMac></WinButtonsMac>
-				<button class="topbar-button">
-					<img src="./sidebar.svg" />
-				</button>
-			</div>
-		</div>
-	</main>
-	<main class="window-body mac dark">
-		<div class="topbar toolbar">
-			<div class="topbar-container">
-				<WinButtonsMac></WinButtonsMac>
-				<button class="topbar-button">
-					<img src="./sidebar.svg" />
-				</button>
-			</div>
-		</div>
-	</main>
+	<div class="colum">
+		<!-- Mac -->
+		<Window theme="light" type="default" uiPlatform="mac" />
+		<Window theme="light" type="buttonbar" uiPlatform="mac" />
+		<Window theme="light" type="toolbar" uiPlatform="mac" />
 
-  <!-- Win -->
-	<main class="window-body win dark">
-		<div class="topbar default">
-			<div class="topbar-container">
-        <WinButtonsMS></WinButtonsMS>
-			</div>
-		</div>
-	</main>
-	<main class="window-body win dark">
-		<div class="topbar buttonbar">
-			<div class="topbar-container">
-				<button class="topbar-button">
-					<img src="./sidebar.svg" />
-				</button>
-			</div>
-		</div>
-	</main>
-	<main class="window-body win dark">
-		<div class="topbar toolbar">
-			<div class="topbar-container">
-				<WinButtonsMac></WinButtonsMac>
-				<button class="topbar-button">
-					<img src="./sidebar.svg" />
-				</button>
-			</div>
-		</div>
-	</main>
+		<!-- Win -->
+		<Window theme="light" type="default" uiPlatform="win" />
+		<Window theme="light" type="buttonbar" uiPlatform="win" />
+		<Window theme="light" type="toolbar" uiPlatform="win" />
+
+		<!-- Web -->
+		<Window theme="light" type="default" uiPlatform="web" />
+		<Window theme="light" type="buttonbar" uiPlatform="web" />
+		<Window theme="light" type="toolbar" uiPlatform="web" />
+	</div>
+
+	<!-- Dark Theme -->
+	<div class="colum">
+		<!-- Mac -->
+		<Window theme="dark" type="default" uiPlatform="mac" />
+		<Window theme="dark" type="buttonbar" uiPlatform="mac" />
+		<Window theme="dark" type="toolbar" uiPlatform="mac" />
+
+		<!-- Win -->
+		<Window theme="dark" type="default" uiPlatform="win" />
+		<Window theme="dark" type="buttonbar" uiPlatform="win" />
+		<Window theme="dark" type="toolbar" uiPlatform="win" />
+
+		<!-- Web -->
+		<Window theme="dark" type="default" uiPlatform="web" />
+		<Window theme="dark" type="buttonbar" uiPlatform="web" />
+		<Window theme="dark" type="toolbar" uiPlatform="web" />
+	</div>
 </div>
 
 <style lang="scss" scoped>
