@@ -5,18 +5,31 @@
 	import TopBarButton from "@/pureUI/components/TopBarButton.svelte";
 	import TopBarDropdown from "@/pureUI/components/TopBarDropdown.svelte";
 	import TopBarDropdownItem from "@/pureUI/components/TopBarDropdownItem.svelte";
-	import { sidebar } from "@/ts/Stores.svelte";
+	import { showContent, sidebar } from "@/ts/Stores.svelte";
 	import Sidebar from "@/pureUI/components/Sidebar.svelte";
 
 	interface Props {
 		theme: "light" | "dark";
 		type: string;
 		uiPlatform: "mac" | "win" | "web" | "tahoe";
+		largeCorner?: boolean;
+		fullContent?: boolean;
 	}
-	let { theme, type, uiPlatform }: Props = $props();
+	let {
+		theme,
+		type,
+		uiPlatform,
+		largeCorner = false,
+		fullContent = false,
+	}: Props = $props();
 </script>
 
-<main class={`window-body ${uiPlatform} ${theme}`}>
+<main
+	class={`window-body ${uiPlatform} ${theme}`}
+	style={largeCorner ? "border-radius: var(--win-corner-large);" : ""}
+	class:fullContent
+	class:showContent={$showContent}
+>
 	<div class={`topbar ${type}`}>
 		<div class="topbar-container">
 			{#if uiPlatform == "mac" || uiPlatform == "tahoe"}
@@ -28,7 +41,13 @@
 			{/if}
 
 			{#if type == "buttonbar" || type == "toolbar"}
-				<TopBarButton id="" icon="sidebar" onClick={() => {$sidebar = !$sidebar}} toolTip=""
+				<TopBarButton
+					id=""
+					icon="sidebar"
+					onClick={() => {
+						$sidebar = !$sidebar;
+					}}
+					toolTip=""
 				></TopBarButton>
 				<button class="topbar-button force-hover">
 					<img src="./icons/topbar/folder.svg" alt="" />
@@ -36,7 +55,7 @@
 			{/if}
 
 			<div class="spacer"></div>
-			<div class="window-title">Window</div>
+			<div class="window-title" class:static={type == "default"}>Window</div>
 			<div class="spacer"></div>
 
 			{#if type == "toolbar" || type == "buttonbar"}
@@ -57,10 +76,12 @@
 			{/if}
 		</div>
 	</div>
-	<Sidebar width={200} show={$sidebar}></Sidebar>
-	<div class="content"></div>
+	{#if type != "default"}
+		<Sidebar width={200} show={$sidebar}></Sidebar>
+	{/if}
+	<div class="content" class:showContent={$showContent} class:fullContent></div>
 
-  <div class="window-rim"></div>
+	<div class="window-rim"></div>
 </main>
 
 <style lang="scss" scoped>
@@ -73,37 +94,55 @@
 			"sidebar content";
 
 		position: relative;
-		width: 500px;
+		width: var(--width);
 		height: var(--height);
 		border-radius: var(--win-corner);
-    background-color: transparent;
-    backdrop-filter: blur(32px);
-    box-shadow: 0 8px 42px rgba(0, 0, 0, 0.455),
-                0 0 1.5px black;
+		background-color: transparent;
+		backdrop-filter: blur(32px);
+		box-shadow:
+			0 8px 42px rgba(0, 0, 0, 0.455),
+			0 0 1.5px black;
 
-    .sidebar {
-      grid-area: sidebar;
-      background-color: var(--navbar-BG);
-      backdrop-filter: blur(32px);
-    }
+		&.fullContent {
+			background-color: var(--properties-BG);
+		}
 
-    .content {
-      grid-area: content;
-      background-color: var(--properties-BG);
-    }
+		&.fullContent.showContent {
+			background: url("./bg-2.jpg");
+		}
 
-    .topbar-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-    }
+		.sidebar {
+			grid-area: sidebar;
+			background-color: var(--navbar-BG);
+			backdrop-filter: blur(32px);
+		}
 
-    .window-rim {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      inset: 0;
-    }
+		.content {
+			grid-area: content;
+			background-color: var(--properties-BG);
+
+			&.showContent {
+				background: url("./bg-2.jpg");
+				background-clip: cover;
+			}
+
+			&.fullContent {
+				background: transparent;
+			}
+		}
+
+		.topbar-container {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+		}
+
+		.window-rim {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			inset: 0;
+		}
 	}
 </style>
