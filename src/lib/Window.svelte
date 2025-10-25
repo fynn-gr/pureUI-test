@@ -48,10 +48,17 @@
 						$sidebar = !$sidebar;
 					}}
 					toolTip=""
+					addClass={$sidebar ? "active over-sidebar" : ""}
 				></TopBarButton>
-				<button class="topbar-button force-hover">
-					<img src="./icons/topbar/folder.svg" alt="" />
-				</button>
+				<TopBarButton
+					id=""
+					icon="folder"
+					onClick={() => {
+						$sidebar = !$sidebar;
+					}}
+					toolTip=""
+					addClass={$sidebar ? "active over-sidebar" : ""}
+				></TopBarButton>
 			{/if}
 
 			<div class="spacer"></div>

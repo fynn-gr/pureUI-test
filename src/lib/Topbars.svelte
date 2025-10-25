@@ -53,8 +53,8 @@
 	<h3>macOS Tahoe</h3>
 	<div class="row">
 		<!-- Tahoe -->
-		<Window theme="light" type="default" uiPlatform="tahoe" />
-		<Window theme="dark" type="default" uiPlatform="tahoe" />
+		<Window theme="light" type="default" uiPlatform="tahoe"  fullContent={true}/>
+		<Window theme="dark" type="default" uiPlatform="tahoe" fullContent={true}/>
 	</div>
 	<div class="row">
 		<Window

@@ -2,11 +2,11 @@
 import { defineConfig } from 'astro/config';
 import svelte from '@astrojs/svelte';
 import solidJs from '@astrojs/solid-js';
-import { processIcons } from './src/pureUI/modules/pureIconPlugin';
+//import { processIcons } from './src/pureUI/modules/pureIconPlugin';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [svelte(), solidJs(), runOnBuild()],
+  integrations: [svelte(), solidJs()],
   vite: {
     resolve: {
       alias: {
@@ -16,13 +16,13 @@ export default defineConfig({
   }
 });
 
-function runOnBuild() {
-  return {
-    name: "pureUI-icons",
-    hooks: {
-      "astro:build:done": () => {
-        processIcons();
-      }
-    }
-  }
-}
+// function runOnBuild() {
+//   return {
+//     name: "pureUI-icons",
+//     hooks: {
+//       "astro:build:done": () => {
+//         processIcons();
+//       }
+//     }
+//   }
+// }
