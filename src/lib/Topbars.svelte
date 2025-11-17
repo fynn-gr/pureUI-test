@@ -70,16 +70,6 @@
 			fullContent={true}
 		/>
 	</div>
-	<div class="row">
-		<Window
-			theme="light"
-			type="toolbar"
-			uiPlatform="tahoe"
-			largeCorner={true}
-			fullContent={true}
-		/>
-		<Window theme="dark" type="toolbar" uiPlatform="tahoe" largeCorner={true} fullContent={true} />
-	</div>
 	<h3>Windows</h3>
 	<div class="row">
 		<!-- Win -->

@@ -28,7 +28,9 @@
 
 <main
 	class={`window-body ${uiPlatform} ${theme}`}
-	style={largeCorner ? "border-radius: var(--win-corner-large);" : ""}
+	style={uiPlatform == "tahoe" && type == "buttonbar"
+		? "border-radius: var(--win-corner-large);" 
+		: ""}
 	class:fullContent
 	class:showContent={$showContent}
 >
@@ -62,7 +64,7 @@
 					addClass={$sidebar ? "active over-sidebar" : ""}
 				></TopBarButton>
 			{/if}
-			{#if (uiPlatform == "win" || uiPlatform == "web" ) && ( type == "toolbar" || type == "buttonbar")}
+			{#if (uiPlatform == "win" || uiPlatform == "web") && (type == "toolbar" || type == "buttonbar")}
 				<AppMenu name="File">
 					<AppMenuItem name="Open" id=""></AppMenuItem>
 					<AppMenuItem name="Save" id=""></AppMenuItem>
