@@ -7,6 +7,8 @@
 	import TopBarDropdownItem from "@/pureUI/components/TopBarDropdownItem.svelte";
 	import { showContent, sidebar } from "@/ts/Stores.svelte";
 	import Sidebar from "@/pureUI/components/Sidebar.svelte";
+	import AppMenu from "@/pureUI/components/AppMenu.svelte";
+	import AppMenuItem from "@/pureUI/components/AppMenuItem.svelte";
 
 	interface Props {
 		theme: "light" | "dark";
@@ -60,12 +62,29 @@
 					addClass={$sidebar ? "active over-sidebar" : ""}
 				></TopBarButton>
 			{/if}
+			{#if (uiPlatform == "win" || uiPlatform == "web" ) && ( type == "toolbar" || type == "buttonbar")}
+				<AppMenu name="File">
+					<AppMenuItem name="Open" id=""></AppMenuItem>
+					<AppMenuItem name="Save" id=""></AppMenuItem>
+					<AppMenuItem name="Save as" id=""></AppMenuItem>
+					<div class="seperator"></div>
+					<AppMenuItem name="Quit" id=""></AppMenuItem>
+				</AppMenu>
+			{/if}
 
 			<div class="spacer"></div>
 			<div class="window-title" class:static={type == "default"}>Window</div>
 			<div class="spacer"></div>
 
 			{#if type == "toolbar" || type == "buttonbar"}
+				<div class="topbar-group">
+					<TopBarButton id="" icon="pause" onClick={() => {}} toolTip=""
+					></TopBarButton>
+					<TopBarDropdown icon={null} toolTip="">
+						<TopBarDropdownItem name={"Option 1"}>Option 1</TopBarDropdownItem>
+						<TopBarDropdownItem name={"Option 2"}>Option 2</TopBarDropdownItem>
+					</TopBarDropdown>
+				</div>
 				<TopBarDropdown icon="display" toolTip="">
 					<TopBarDropdownItem name="Option 1"></TopBarDropdownItem>
 					<TopBarDropdownItem name="Option 2"></TopBarDropdownItem>

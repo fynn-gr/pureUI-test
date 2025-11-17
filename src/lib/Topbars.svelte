@@ -1,13 +1,10 @@
 <script lang="ts">
 	import "../pureUI/scss/index.scss";
-	import WinButtonsMac from "../pureUI/components/WinButtonsMac.svelte";
-	import WinButtonsMS from "../pureUI/components/WinButtonsMS.svelte";
-	import TopBarWebMenu from "../pureUI/components/TopBarWebMenu.svelte";
 	import Window from "./Window.svelte";
 	import { showContent } from "@/ts/Stores.svelte";
 
 	let height: number = $state(100);
-	let width: number = $state(500);
+	let width: number = $state(600);
 </script>
 
 <!-- svelte-ignore a11y_consider_explicit_label -->
@@ -26,12 +23,13 @@
 	type="range"
 	name="width"
 	id=""
-	min="300"
-	max="800"
+	min="500"
+	max="1000"
 	step="100"
 	bind:value={width}
 />
-<input type="checkbox" name="content" id="" bind:checked={$showContent} />
+<input type="checkbox" name="content" id="show-content" bind:checked={$showContent} />
+<label for="show-content">Show Content</label>
 
 <div class="topbars" style={`--height: ${height}px; --width: ${width}px;`}>
 	<h3>macOS</h3>
@@ -98,17 +96,8 @@
 	</div>
 	<h3>Web</h3>
 	<div class="row">
-		<!-- Web -->
-		<Window theme="light" type="default" uiPlatform="web" />
-		<Window theme="dark" type="default" uiPlatform="web" />
-	</div>
-	<div class="row">
 		<Window theme="light" type="buttonbar" uiPlatform="web" />
 		<Window theme="dark" type="buttonbar" uiPlatform="web" />
-	</div>
-	<div class="row">
-		<Window theme="light" type="toolbar" uiPlatform="web" />
-		<Window theme="dark" type="toolbar" uiPlatform="web" />
 	</div>
 </div>
 
