@@ -9,6 +9,7 @@
 	import Sidebar from "@/pureUI/components/Sidebar.svelte";
 	import AppMenu from "@/pureUI/components/AppMenu.svelte";
 	import AppMenuItem from "@/pureUI/components/AppMenuItem.svelte";
+	import Browser from "./Browser.svelte";
 
 	interface Props {
 		theme: "light" | "dark";
@@ -75,7 +76,14 @@
 			{/if}
 
 			<div class="spacer"></div>
-			<div class="window-title" class:static={type == "default"}>Window</div>
+			{#if type == "default"}
+				<div class="window-title" class:static={type == "default"}>Window</div>
+			{:else}
+				<div class="document-title">
+					<p>Document</p>
+					<p class="save-indicator">• Edited</p>
+				</div>
+			{/if}
 			<div class="spacer"></div>
 
 			{#if type == "toolbar" || type == "buttonbar"}
