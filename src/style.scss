@@ -6,9 +6,11 @@ body {
   position: relative !important;
   overflow: scroll !important;
   --accent: rgb(245, 35, 75);
+  --accent-filter: invert(20%) sepia(72%) saturate(4109%) hue-rotate(339deg)
+		brightness(102%) contrast(92%);
 }
 
-.head {
+.top {
   position: fixed;
   width: 100%;
   z-index: 1000;

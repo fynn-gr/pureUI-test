@@ -5,7 +5,12 @@
 	import TopBarButton from "@/pureUI/components/TopBarButton.svelte";
 	import TopBarDropdown from "@/pureUI/components/TopBarDropdown.svelte";
 	import TopBarDropdownItem from "@/pureUI/components/TopBarDropdownItem.svelte";
-	import { selectedItem, showContent, sidebar } from "@/ts/Stores.svelte";
+	import {
+		folders,
+		selectedItem,
+		showContent,
+		sidebar,
+	} from "@/ts/Stores.svelte";
 	import AppMenu from "@/pureUI/components/AppMenu.svelte";
 	import AppMenuItem from "@/pureUI/components/AppMenuItem.svelte";
 	import NavItem from "@/pureUI/components/NavItem.svelte";
@@ -29,9 +34,11 @@
 
 <main
 	class={`window-body ${uiPlatform} ${theme}`}
-	style={uiPlatform == "tahoe" && type == "buttonbar"
-		? "border-radius: var(--win-corner-large);"
-		: ""}
+	style={`${
+		uiPlatform == "tahoe" && type == "buttonbar"
+			? "border-radius: var(--win-corner-large);"
+			: ""
+	} ${uiPlatform == "tahoe" ? "corner-shape: superellipse(1.1);" : ""}`}
 	class:fullContent
 	class:showContent={$showContent}
 >
@@ -119,29 +126,88 @@
 					<NavItem
 						name="Home"
 						icon="home"
-						onClick={() => { $selectedItem == 1 ? $selectedItem = 0 : $selectedItem = 1 }}
+						onClick={() => {
+							$selectedItem == 1 ? ($selectedItem = 0) : ($selectedItem = 1);
+						}}
 						active={$selectedItem == 1}
 					></NavItem>
 					<NavItem
 						name="Home"
 						icon="home"
-						onClick={() => { $selectedItem == 2 ? $selectedItem = 0 : $selectedItem = 2 }}
+						onClick={() => {
+							$selectedItem == 2 ? ($selectedItem = 0) : ($selectedItem = 2);
+						}}
 						active={$selectedItem == 2}
 					></NavItem>
-					<NavFolder
-						name="Folder 1"
-						icon="folder"
-						active={$selectedItem == 3}
-						exposed={true}
-						onClick={() => { $selectedItem == 3 ? $selectedItem = 0 : $selectedItem = 3 }}
-					>
-						<NavItem
-							name="Subitem 1"
-							icon="play"
-							onClick={() => { $selectedItem == 4 ? $selectedItem = 0 : $selectedItem = 4 }}
-							active={$selectedItem == 4}
-						></NavItem>
-					</NavFolder>
+					{#if $folders}
+						<NavFolder
+							name="Folder 1"
+							icon="folder"
+							active={$selectedItem == 3}
+							exposed={true}
+							onClick={() => {
+								$selectedItem == 3 ? ($selectedItem = 0) : ($selectedItem = 3);
+							}}
+							depth={0}
+						>
+							<NavItem
+								name="Subitem 1"
+								icon="play"
+								onClick={() => {
+									$selectedItem == 4
+										? ($selectedItem = 0)
+										: ($selectedItem = 4);
+								}}
+								active={$selectedItem == 4}
+								depth={1}
+							></NavItem>
+							<NavFolder
+								name="Subfolder 1"
+								icon="folder"
+								active={$selectedItem == 5}
+								exposed={true}
+								onClick={() => {
+									$selectedItem == 5
+										? ($selectedItem = 0)
+										: ($selectedItem = 5);
+								}}
+								depth={1}
+							>
+								<NavItem
+									name="Subitem 1"
+									icon="pause"
+									onClick={() => {
+										$selectedItem == 6
+											? ($selectedItem = 0)
+											: ($selectedItem = 6);
+									}}
+									active={$selectedItem == 6}
+									depth={2}
+								></NavItem></NavFolder
+							>
+						</NavFolder>
+						<NavFolder
+							name="Folder 1"
+							icon="document"
+							active={$selectedItem == 7}
+							exposed={true}
+							onClick={() => {
+								$selectedItem == 7 ? ($selectedItem = 0) : ($selectedItem = 7);
+							}}
+						>
+							<NavItem
+								name="Subitem 1"
+								icon="settings"
+								onClick={() => {
+									$selectedItem == 8
+										? ($selectedItem = 0)
+										: ($selectedItem = 8);
+								}}
+								active={$selectedItem == 8}
+								depth={1}
+							></NavItem>
+						</NavFolder>
+					{/if}
 				</div>
 			</div>
 		</div>

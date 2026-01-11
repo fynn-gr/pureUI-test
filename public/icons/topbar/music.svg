@@ -1,7 +1,7 @@
 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="18.5" cy="22" rx="2.5" ry="2" fill="black"/>
-<ellipse cx="9.5" cy="19" rx="2.5" ry="2" fill="black"/>
-<rect x="10" y="10" width="2" height="9" fill="black"/>
-<rect x="19" y="13" width="2" height="9" fill="black"/>
-<path d="M10 10C10 8.59507 11.4521 7.66004 12.7311 8.24141L19.8276 11.4671C20.5416 11.7916 21 12.5035 21 13.2878V15L10 10Z" fill="black"/>
+<ellipse cx="2.5" cy="2" rx="2.5" ry="2" transform="matrix(-1 0 0 1 13 19)" fill="black"/>
+<ellipse cx="2.5" cy="2" rx="2.5" ry="2" transform="matrix(-1 0 0 1 22 16)" fill="black"/>
+<path d="M22 8.5H20V18H22V8.5Z" fill="black"/>
+<rect width="2" height="9" transform="matrix(-1 0 0 1 13 12)" fill="black"/>
+<path d="M22 8.5C22 7.32922 20.7899 6.55004 19.7241 7.03451L12.1724 10.4671C11.4584 10.7916 11 11.5035 11 12.2878V13.5L22 8.5Z" fill="black"/>
 </svg>
