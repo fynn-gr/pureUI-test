@@ -4,8 +4,8 @@
 	import Window from "./Window.svelte";
 	import { showContent } from "@/ts/Stores.svelte";
 
-	let height: number = $state(100);
-	let width: number = $state(600);
+	let height: number = $state(200);
+	let width: number = $state(700);
 </script>
 
 <!-- svelte-ignore a11y_consider_explicit_label -->

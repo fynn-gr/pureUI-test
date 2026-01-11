@@ -5,11 +5,11 @@
 	import TopBarButton from "@/pureUI/components/TopBarButton.svelte";
 	import TopBarDropdown from "@/pureUI/components/TopBarDropdown.svelte";
 	import TopBarDropdownItem from "@/pureUI/components/TopBarDropdownItem.svelte";
-	import { showContent, sidebar } from "@/ts/Stores.svelte";
-	import Sidebar from "@/pureUI/components/Sidebar.svelte";
+	import { selectedItem, showContent, sidebar } from "@/ts/Stores.svelte";
 	import AppMenu from "@/pureUI/components/AppMenu.svelte";
 	import AppMenuItem from "@/pureUI/components/AppMenuItem.svelte";
-	import Browser from "./Browser.svelte";
+	import NavItem from "@/pureUI/components/NavItem.svelte";
+	import NavFolder from "@/pureUI/components/NavFolder.svelte";
 
 	interface Props {
 		theme: "light" | "dark";
@@ -30,7 +30,7 @@
 <main
 	class={`window-body ${uiPlatform} ${theme}`}
 	style={uiPlatform == "tahoe" && type == "buttonbar"
-		? "border-radius: var(--win-corner-large);" 
+		? "border-radius: var(--win-corner-large);"
 		: ""}
 	class:fullContent
 	class:showContent={$showContent}
@@ -113,7 +113,38 @@
 		</div>
 	</div>
 	{#if type != "default"}
-		<Sidebar width={200} show={$sidebar}></Sidebar>
+		<div class="sidebar" style={`width: ${$sidebar ? 200 : 0}px;`}>
+			<div class="sidebar-inner">
+				<div class="nav-list">
+					<NavItem
+						name="Home"
+						icon="home"
+						onClick={() => { $selectedItem == 1 ? $selectedItem = 0 : $selectedItem = 1 }}
+						active={$selectedItem == 1}
+					></NavItem>
+					<NavItem
+						name="Home"
+						icon="home"
+						onClick={() => { $selectedItem == 2 ? $selectedItem = 0 : $selectedItem = 2 }}
+						active={$selectedItem == 2}
+					></NavItem>
+					<NavFolder
+						name="Folder 1"
+						icon="folder"
+						active={$selectedItem == 3}
+						exposed={true}
+						onClick={() => { $selectedItem == 3 ? $selectedItem = 0 : $selectedItem = 3 }}
+					>
+						<NavItem
+							name="Subitem 1"
+							icon="play"
+							onClick={() => { $selectedItem == 4 ? $selectedItem = 0 : $selectedItem = 4 }}
+							active={$selectedItem == 4}
+						></NavItem>
+					</NavFolder>
+				</div>
+			</div>
+		</div>
 	{/if}
 	<div class="content" class:showContent={$showContent} class:fullContent></div>
 
@@ -149,8 +180,6 @@
 
 		.sidebar {
 			grid-area: sidebar;
-			background-color: var(--navbar-BG);
-			backdrop-filter: blur(32px);
 		}
 
 		.content {

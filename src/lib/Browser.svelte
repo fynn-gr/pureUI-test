@@ -35,8 +35,19 @@ interface Props{
 		width: var(--width);
 		height: 88px;
 		background-color: var(--bg);
-		border-radius: 9px 9px 0 0;
+		border-radius: 19px 19px 0 0;
+		corner-shape: superellipse(1.1);
 		box-shadow: 0px -1px 2px 1px rgba(0, 0, 0, 0.094);
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			border-radius: 19px 19px 0 0;
+			border-top: 1px solid rgba(255, 255, 255, 0.3);
+			border-right: 1px solid rgba(255, 255, 255, 0.3);
+			border-left: 1px solid rgba(255, 255, 255, 0.3);
+		}
 
 		&.light {
 			--bg: #d3e3fd;
@@ -56,13 +67,13 @@ interface Props{
 
 		.win-buttons-mac {
 			position: absolute;
-			top: 15px;
-			left: 20px;
+			top: 14px;
+			left: 15px;
 			display: flex;
 
 			button {
-				width: 12px;
-				height: 12px;
+				width: 14px;
+				height: 14px;
 				box-sizing: border-box;
 				border: none;
 				border-width: 1px;
@@ -133,7 +144,7 @@ interface Props{
 		.tab {
 			position: absolute;
 			top: 7px;
-			left: 95px;
+			left: 88px;
 			height: 34px;
 			width: 225px;
 			padding-left: 12px;
