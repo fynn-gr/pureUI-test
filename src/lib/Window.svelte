@@ -74,11 +74,11 @@
 			{/if}
 			{#if (uiPlatform == "win" || uiPlatform == "web") && (type == "toolbar" || type == "buttonbar")}
 				<AppMenu name="File">
-					<AppMenuItem name="Open" id=""></AppMenuItem>
-					<AppMenuItem name="Save" id=""></AppMenuItem>
-					<AppMenuItem name="Save as" id=""></AppMenuItem>
+					<AppMenuItem name="Open" id="" accelerator="Ctrl+O"></AppMenuItem>
+					<AppMenuItem name="Save" id="" accelerator="Ctrl+S"></AppMenuItem>
+					<AppMenuItem name="Save as" id="" accelerator="Ctrl+Shift+S"></AppMenuItem>
 					<div class="seperator"></div>
-					<AppMenuItem name="Quit" id=""></AppMenuItem>
+					<AppMenuItem name="Quit" id="" accelerator="Ctrl+Q"></AppMenuItem>
 				</AppMenu>
 			{/if}
 
