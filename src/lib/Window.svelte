@@ -230,8 +230,7 @@
 		width: var(--width);
 		height: var(--height);
 		border-radius: var(--win-corner);
-		background-color: transparent;
-		backdrop-filter: blur(32px);
+		background-color: rgb(109, 109, 109);
 		box-shadow:
 			0 8px 42px rgba(0, 0, 0, 0.455),
 			0 0 1.5px black;
@@ -241,7 +240,8 @@
 		}
 
 		&.fullContent.showContent {
-			background: url("./bg-2.jpg");
+			//background: url("./bg-2.jpg");
+			background-color: gray;
 		}
 
 		.sidebar {
@@ -253,8 +253,9 @@
 			background-color: var(--properties-BG);
 
 			&.showContent {
-				background: url("./bg-2.jpg");
-				background-clip: cover;
+				//background: url("./bg-2.jpg");
+				//background-clip: cover;
+				background-color: gray;
 			}
 
 			&.fullContent {
