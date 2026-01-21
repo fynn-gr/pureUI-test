@@ -62,15 +62,6 @@
 					toolTip=""
 					addClass={$sidebar ? "active over-sidebar" : ""}
 				></TopBarButton>
-				<TopBarButton
-					id=""
-					icon="folder"
-					onClick={() => {
-						$sidebar = !$sidebar;
-					}}
-					toolTip=""
-					addClass={$sidebar ? "active over-sidebar" : ""}
-				></TopBarButton>
 			{/if}
 			{#if (uiPlatform == "win" || uiPlatform == "web") && (type == "toolbar" || type == "buttonbar")}
 				<AppMenu name="File">
