@@ -15,6 +15,7 @@
 	import AppMenuItem from "@/pureUI/components/AppMenuItem.svelte";
 	import NavItem from "@/pureUI/components/NavItem.svelte";
 	import NavFolder from "@/pureUI/components/NavFolder.svelte";
+	import SelectionBox from "@/pureUI/components/SelectionBox.svelte";
 
 	interface Props {
 		theme: "light" | "dark";
@@ -51,7 +52,9 @@
 			{#if uiPlatform == "web"}
 				<TopBarWebMenu active="none" name="Test"></TopBarWebMenu>
 			{/if}
-
+			{#if uiPlatform == "tahoe" && $sidebar}
+				<div class="spacer" style={`width: 50px; flex: none;`}></div>
+			{/if}
 			{#if type == "buttonbar" || type == "toolbar"}
 				<TopBarButton
 					id=""
@@ -63,14 +66,32 @@
 					addClass={$sidebar ? "active over-sidebar" : ""}
 				></TopBarButton>
 			{/if}
+			{#if uiPlatform == "mac" && (type == "toolbar" || type == "buttonbar") && $sidebar}
+				<div
+					class="spacer"
+					style={`width: ${type == "buttonbar" ? 72 : 54}px; flex: none;`}
+				></div>
+			{/if}
 			{#if (uiPlatform == "win" || uiPlatform == "web") && (type == "toolbar" || type == "buttonbar")}
 				<AppMenu name="File">
 					<AppMenuItem name="Open" id="" accelerator="Ctrl+O"></AppMenuItem>
 					<AppMenuItem name="Save" id="" accelerator="Ctrl+S"></AppMenuItem>
-					<AppMenuItem name="Save as" id="" accelerator="Ctrl+Shift+S"></AppMenuItem>
+					<AppMenuItem name="Save as" id="" accelerator="Ctrl+Shift+S"
+					></AppMenuItem>
 					<div class="seperator"></div>
 					<AppMenuItem name="Quit" id="" accelerator="Ctrl+Q"></AppMenuItem>
 				</AppMenu>
+			{/if}
+
+			{#if type != "default"}
+				<SelectionBox
+					options={[
+						{ name: "One", value: 1 },
+						{ name: "Two", value: 2 },
+						{ name: "Three", value: 3 },
+					]}
+					selected={"One"}
+				></SelectionBox>
 			{/if}
 
 			<div class="spacer"></div>

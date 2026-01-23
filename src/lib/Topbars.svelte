@@ -1,41 +1,47 @@
 <script lang="ts">
-	import { preventDefault } from "svelte/legacy";
 	import "../pureUI/scss/index.scss";
-	import Browser from "./Browser.svelte";
 	import Window from "./Window.svelte";
+	import Browser from "./Browser.svelte";
+
 	import { folders, showContent } from "@/ts/Stores.svelte";
 
-	let height: number = $state(300);
-	let width: number = $state(700);
+	let height: number = $state(200);
+	let width: number = $state(900);
 </script>
 
 <!-- svelte-ignore a11y_consider_explicit_label -->
 <!-- svelte-ignore a11y_missing_attribute -->
- <div class="top">
-		<h1>pureUI</h1>
-	 <input
-		 type="range"
-		 name="height"
-		 id=""
-		 min="60"
-		 max="300"
-		 step="40"
-		 bind:value={height}
-	 />
-	 <input
-		 type="range"
-		 name="width"
-		 id=""
-		 min="500"
-		 max="1000"
-		 step="100"
-		 bind:value={width}
-	 />
-	 <input type="checkbox" name="content" id="show-content" bind:checked={$showContent} />
-	 <label for="show-content">Show Content</label>
-	 <input type="checkbox" bind:checked={$folders}>
- </div>
-<h2>Top Bars</h2>
+<div class="top">
+	<h1>pureUI</h1>
+	<h2>Top Bars</h2>
+	<input
+		type="range"
+		name="height"
+		id=""
+		min="60"
+		max="300"
+		step="40"
+		bind:value={height}
+	/>
+	<input
+		type="range"
+		name="width"
+		id=""
+		min="500"
+		max="1000"
+		step="100"
+		bind:value={width}
+	/>
+	<input
+		type="checkbox"
+		name="content"
+		id="show-content"
+		bind:checked={$showContent}
+	/>
+	<label for="show-content">Show Content</label>
+	<input type="checkbox" bind:checked={$folders} />
+	<label for="">Folder structure</label>
+</div>
 
 <div class="topbars" style={`--height: ${height}px; --width: ${width}px;`}>
 	<h3>macOS</h3>
@@ -57,8 +63,13 @@
 	<h3>macOS Tahoe</h3>
 	<div class="row">
 		<!-- Tahoe -->
-		<Window theme="light" type="default" uiPlatform="tahoe"  fullContent={true}/>
-		<Window theme="dark" type="default" uiPlatform="tahoe" fullContent={true}/>
+		<Window
+			theme="light"
+			type="default"
+			uiPlatform="tahoe"
+			fullContent={true}
+		/>
+		<Window theme="dark" type="default" uiPlatform="tahoe" fullContent={true} />
 	</div>
 	<div class="row">
 		<Window
