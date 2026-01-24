@@ -69,7 +69,7 @@
 			{#if uiPlatform == "mac" && (type == "toolbar" || type == "buttonbar") && $sidebar}
 				<div
 					class="spacer"
-					style={`width: ${type == "buttonbar" ? 72 : 54}px; flex: none;`}
+					style={`width: ${type == "buttonbar" ? 80 : 58}px; flex: none;`}
 				></div>
 			{/if}
 			{#if (uiPlatform == "win" || uiPlatform == "web") && (type == "toolbar" || type == "buttonbar")}
