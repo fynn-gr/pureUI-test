@@ -58,6 +58,38 @@ body {
 }
 
 
-.topbars main {
-  
+main.mac:has(.default) {
+  min-height: 28px;
+}
+
+main.mac:has(.buttonbar) {
+  min-height: 38px;
+}
+
+main.mac:has(.toolbar) {
+  min-height: 54px;
+}
+
+main.tahoe:has(.default) {
+  min-height: 32px;
+}
+
+main.tahoe:has(.buttonbar), main.tahoe:has(.toolbar) {
+  min-height: 54px;
+}
+
+main.win:has(.default) {
+  min-height: 32px;
+}
+
+main.win:has(.buttonbar) {
+  min-height: 32px;
+}
+
+main.win:has(.toolbar) {
+  min-height: 44px;
+}
+
+main.web {
+  min-height: 40px;
 }

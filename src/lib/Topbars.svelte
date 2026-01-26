@@ -18,7 +18,7 @@
 		type="range"
 		name="height"
 		id=""
-		min="60"
+		min="10"
 		max="300"
 		step="40"
 		bind:value={height}
@@ -111,6 +111,3 @@
 		<Window theme="dark" type="buttonbar" uiPlatform="web" />
 	</div>
 </div>
-
-<style lang="scss">
-</style>
