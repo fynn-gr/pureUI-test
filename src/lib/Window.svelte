@@ -206,6 +206,7 @@
 							onClick={() => {
 								$selectedItem == 7 ? ($selectedItem = 0) : ($selectedItem = 7);
 							}}
+							depth={0}
 						>
 							<NavItem
 								name="Subitem 1"
