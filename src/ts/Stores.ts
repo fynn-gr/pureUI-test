@@ -2,7 +2,7 @@ import { create } from "zustand";
 
 export type StoreState = {
 	// UI State
-	uiPlatform: "mac" | "win" | "web" | "tahoe";
+	uiPlatform: "mac" | "win" | "web" | "liquidGlass";
 	theme: "light" | "dark";
 	editorTheme: "light" | "dark" | "paper" | "auto";
 	debug: boolean;
@@ -14,7 +14,7 @@ export type StoreState = {
 	show_properties: boolean;
 
 	// Setters
-	setUiPlatform: (value: "mac" | "win" | "web" | "tahoe") => void;
+	setUiPlatform: (value: "mac" | "win" | "web" | "liquidGlass") => void;
 	setTheme: (value: "light" | "dark") => void;
 	setEditorTheme: (value: "light" | "dark" | "paper" | "auto") => void;
 	setDebug: (value: boolean) => void;
@@ -73,7 +73,7 @@ export const setMenuHandler = (fn: (...args: any[]) => void) =>
 	useAppStore.setState({ menuHandler: fn });
 
 // Export setters for convenience
-export const setUiPlatform = (value: "mac" | "win" | "web" | "tahoe") =>
+export const setUiPlatform = (value: "mac" | "win" | "web" | "liquidGlass") =>
 	useAppStore.setState({ uiPlatform: value });
 export const setTheme = (value: "light" | "dark") =>
 	useAppStore.setState({ theme: value });

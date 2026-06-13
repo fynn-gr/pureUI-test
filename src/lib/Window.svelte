@@ -20,7 +20,7 @@
 	interface Props {
 		theme: "light" | "dark";
 		type: string;
-		uiPlatform: "mac" | "win" | "web" | "tahoe";
+		uiPlatform: "mac" | "win" | "web" | "liquidGlass";
 		largeCorner?: boolean;
 		fullContent?: boolean;
 	}
@@ -36,23 +36,23 @@
 <main
 	class={`window-body ${uiPlatform} ${theme}`}
 	style={`${
-		uiPlatform == "tahoe" && type == "buttonbar"
+		uiPlatform == "liquidGlass" && type == "buttonbar"
 			? "border-radius: var(--win-corner-large);"
 			: ""
-	} ${uiPlatform == "tahoe" ? "corner-shape: superellipse(1.1);" : ""}`}
+	} ${uiPlatform == "liquidGlass" ? "corner-shape: superellipse(1.1);" : ""}`}
 	class:fullContent
 	class:showContent={$showContent}
 >
 	<div class={`topbar ${type}`}>
 		<div class="topbar-container">
-			{#if uiPlatform == "mac" || uiPlatform == "tahoe"}
+			{#if uiPlatform == "mac" || uiPlatform == "liquidGlass"}
 				<WinButtonsMac></WinButtonsMac>
 			{/if}
 
 			{#if uiPlatform == "web"}
 				<TopBarWebMenu active="none" name="Test"></TopBarWebMenu>
 			{/if}
-			{#if uiPlatform == "tahoe" && $sidebar}
+			{#if uiPlatform == "liquidGlass" && $sidebar}
 				<div class="spacer" style={`width: 50px; flex: none;`}></div>
 			{/if}
 			{#if type == "buttonbar" || type == "toolbar"}

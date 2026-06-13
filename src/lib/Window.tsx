@@ -14,7 +14,7 @@ import WinButtonsMS from "@/pureUI/react/WinButtonsMS";
 interface WindowProps {
 	theme: "light" | "dark";
 	type: "default" | "buttonbar" | "toolbar";
-	uiPlatform: "mac" | "win" | "web" | "tahoe";
+	uiPlatform: "mac" | "win" | "web" | "liquidGlass";
 	largeCorner?: boolean;
 	fullContent?: boolean;
 	sidebar: boolean;
@@ -43,10 +43,10 @@ const Window: FC<WindowProps> = ({
 	};
 
 	const windowStyle: React.CSSProperties = {
-		...(uiPlatform === "tahoe" && type === "buttonbar"
+		...(uiPlatform === "liquidGlass" && type === "buttonbar"
 			? { borderRadius: "var(--win-corner-large)" }
 			: {}),
-		...(uiPlatform === "tahoe"
+		...(uiPlatform === "liquidGlass"
 			? ({ cornerShape: "superellipse(1.1)" } as any)
 			: {}),
 	} as React.CSSProperties;
@@ -58,7 +58,7 @@ const Window: FC<WindowProps> = ({
 		>
 			<div className={`topbar ${type}`}>
 				<div className="topbar-container">
-					{(uiPlatform === "mac" || uiPlatform === "tahoe") && (
+					{(uiPlatform === "mac" || uiPlatform === "liquidGlass") && (
 						<WinButtonsMac />
 					)}
 
@@ -161,73 +161,71 @@ const Window: FC<WindowProps> = ({
 
 			{type !== "default" && (
 				<div className="sidebar" style={{ width: sidebar ? 200 : 0 }}>
-					<div className="sidebar-inner">
-						<div className="nav-list">
-							<NavItem
-								name="Home"
-								icon="home"
-								onClick={() => toggleSelected(1)}
-								active={selectedItem === 1}
-							/>
-							<NavItem
-								name="Home"
-								icon="home"
-								onClick={() => toggleSelected(2)}
-								active={selectedItem === 2}
-							/>
-							{folders && (
-								<>
+					<div className="nav-list">
+						<NavItem
+							name="Home"
+							icon="home"
+							onClick={() => toggleSelected(1)}
+							active={selectedItem === 1}
+						/>
+						<NavItem
+							name="Home"
+							icon="home"
+							onClick={() => toggleSelected(2)}
+							active={selectedItem === 2}
+						/>
+						{folders && (
+							<>
+								<NavFolder
+									name="Folder 1"
+									icon="folder"
+									active={selectedItem === 3}
+									exposed={true}
+									onClick={() => toggleSelected(3)}
+									depth={0}
+								>
+									<NavItem
+										name="Subitem 1"
+										icon="play"
+										onClick={() => toggleSelected(4)}
+										active={selectedItem === 4}
+										depth={1}
+									/>
 									<NavFolder
-										name="Folder 1"
+										name="Subfolder 1"
 										icon="folder"
-										active={selectedItem === 3}
+										active={selectedItem === 5}
 										exposed={true}
-										onClick={() => toggleSelected(3)}
-										depth={0}
+										onClick={() => toggleSelected(5)}
+										depth={1}
 									>
 										<NavItem
 											name="Subitem 1"
-											icon="play"
-											onClick={() => toggleSelected(4)}
-											active={selectedItem === 4}
-											depth={1}
-										/>
-										<NavFolder
-											name="Subfolder 1"
-											icon="folder"
-											active={selectedItem === 5}
-											exposed={true}
-											onClick={() => toggleSelected(5)}
-											depth={1}
-										>
-											<NavItem
-												name="Subitem 1"
-												icon="pause"
-												onClick={() => toggleSelected(6)}
-												active={selectedItem === 6}
-												depth={2}
-											/>
-										</NavFolder>
-									</NavFolder>
-									<NavFolder
-										name="Folder 1"
-										icon="document"
-										active={selectedItem === 7}
-										exposed={true}
-										onClick={() => toggleSelected(7)}
-										depth={0}
-									>
-										<NavItem
-											name="Subitem 1"
-											icon="settings"
-											onClick={() => toggleSelected(8)}
-											active={selectedItem === 8}
-											depth={1}
+											icon="pause"
+											onClick={() => toggleSelected(6)}
+											active={selectedItem === 6}
+											depth={2}
 										/>
 									</NavFolder>
-								</>
-							)}
-						</div>
+								</NavFolder>
+								<NavFolder
+									name="Folder 1"
+									icon="document"
+									active={selectedItem === 7}
+									exposed={true}
+									onClick={() => toggleSelected(7)}
+									depth={0}
+								>
+									<NavItem
+										name="Subitem 1"
+										icon="settings"
+										onClick={() => toggleSelected(8)}
+										active={selectedItem === 8}
+										depth={1}
+									/>
+								</NavFolder>
+							</>
+						)}
 					</div>
 				</div>
 			)}

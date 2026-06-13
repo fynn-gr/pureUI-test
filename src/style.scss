@@ -1,95 +1,95 @@
 * {
-  font-family: Inter;
+	font-family: Inter;
 }
 
 body {
-  position: relative !important;
-  overflow: scroll !important;
-  --accent: rgb(245, 35, 75);
-  --accent-filter: invert(20%) sepia(72%) saturate(4109%) hue-rotate(339deg)
+	position: relative !important;
+	overflow: scroll !important;
+	--accent: rgb(245, 35, 75);
+	--accent-filter: invert(20%) sepia(72%) saturate(4109%) hue-rotate(339deg)
 		brightness(102%) contrast(92%);
 }
 
 .top {
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
-  background-color: white;
-  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.3);
+	position: fixed;
+	width: 100%;
+	z-index: 1000;
+	display: flex;
+	flex-direction: row;
+	gap: 16px;
+	background-color: white;
+	box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.3);
 
-  h1 {
-    margin: 24px 0 24px 24px;
-  }
+	h1 {
+		margin: 24px 0 24px 24px;
+	}
 
-  h2 {
-    margin: auto 32px auto -4px;
-    font-weight: 500;
-  }
+	h2 {
+		margin: auto 32px auto -4px;
+		font-weight: 500;
+	}
 
-  label {
-    margin: auto 0;
-  }
+	label {
+		margin: auto 0;
+	}
 }
 
 .topbars {
-  padding: 120px 32px 32px 32px;
-  width: max-content;
-  display: flex;
-  flex-direction: column;
-  gap: 42px;
-  background-image: url("./bg-1.jpg");
+	padding: 120px 32px 32px 32px;
+	width: max-content;
+	display: flex;
+	flex-direction: column;
+	gap: 42px;
+	background-image: url("./bg-1.jpg");
 
-  .row{
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    gap: inherit;
+	.row {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		gap: inherit;
 
-    &:has(.browser) {
-      margin-bottom: -42px;
-    }
+		&:has(.browser) {
+			margin-bottom: -42px;
+		}
 
-    .browser {
-    }
-  }
+		.browser {
+		}
+	}
 }
 
-
 main.mac:has(.default) {
-  min-height: 28px;
+	min-height: 28px;
 }
 
 main.mac:has(.buttonbar) {
-  min-height: 38px;
+	min-height: 38px;
 }
 
 main.mac:has(.toolbar) {
-  min-height: 54px;
+	min-height: 54px;
 }
 
-main.tahoe:has(.default) {
-  min-height: 32px;
+main.liquidGlass:has(.default) {
+	min-height: 32px;
 }
 
-main.tahoe:has(.buttonbar), main.tahoe:has(.toolbar) {
-  min-height: 54px;
+main.liquidGlass:has(.buttonbar),
+main.liquidGlass:has(.toolbar) {
+	min-height: 54px;
 }
 
 main.win:has(.default) {
-  min-height: 32px;
+	min-height: 32px;
 }
 
 main.win:has(.buttonbar) {
-  min-height: 32px;
+	min-height: 32px;
 }
 
 main.win:has(.toolbar) {
-  min-height: 44px;
+	min-height: 44px;
 }
 
 main.web {
-  min-height: 40px;
+	min-height: 40px;
 }

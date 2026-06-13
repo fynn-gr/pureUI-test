@@ -60,29 +60,34 @@
 		<Window theme="light" type="toolbar" uiPlatform="mac" />
 		<Window theme="dark" type="toolbar" uiPlatform="mac" />
 	</div>
-	<h3>macOS Tahoe</h3>
+	<h3>macOS liquidGlass</h3>
 	<div class="row">
-		<!-- Tahoe -->
+		<!-- liquidGlass -->
 		<Window
 			theme="light"
 			type="default"
-			uiPlatform="tahoe"
+			uiPlatform="liquidGlass"
 			fullContent={true}
 		/>
-		<Window theme="dark" type="default" uiPlatform="tahoe" fullContent={true} />
+		<Window
+			theme="dark"
+			type="default"
+			uiPlatform="liquidGlass"
+			fullContent={true}
+		/>
 	</div>
 	<div class="row">
 		<Window
 			theme="light"
 			type="buttonbar"
-			uiPlatform="tahoe"
+			uiPlatform="liquidGlass"
 			largeCorner={true}
 			fullContent={true}
 		/>
 		<Window
 			theme="dark"
 			type="buttonbar"
-			uiPlatform="tahoe"
+			uiPlatform="liquidGlass"
 			largeCorner={true}
 			fullContent={true}
 		/>

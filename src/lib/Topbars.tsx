@@ -134,12 +134,12 @@ export default function Topbars() {
 					/>
 				</div>
 
-				<h3>macOS Tahoe</h3>
+				<h3>macOS liquidGlass</h3>
 				<div className="row">
 					<Window
 						theme="light"
 						type="default"
-						uiPlatform="tahoe"
+						uiPlatform="liquidGlass"
 						fullContent
 						sidebar={sidebar}
 						setSidebar={setSidebar}
@@ -151,7 +151,7 @@ export default function Topbars() {
 					<Window
 						theme="dark"
 						type="default"
-						uiPlatform="tahoe"
+						uiPlatform="liquidGlass"
 						fullContent
 						sidebar={sidebar}
 						setSidebar={setSidebar}
@@ -165,7 +165,7 @@ export default function Topbars() {
 					<Window
 						theme="light"
 						type="buttonbar"
-						uiPlatform="tahoe"
+						uiPlatform="liquidGlass"
 						largeCorner
 						fullContent
 						sidebar={sidebar}
@@ -178,7 +178,7 @@ export default function Topbars() {
 					<Window
 						theme="dark"
 						type="buttonbar"
-						uiPlatform="tahoe"
+						uiPlatform="liquidGlass"
 						largeCorner
 						fullContent
 						sidebar={sidebar}
