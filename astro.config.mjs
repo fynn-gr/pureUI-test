@@ -1,12 +1,12 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import svelte from "@astrojs/svelte";
-import solidJs from "@astrojs/solid-js";
+import react from "@astrojs/react";
 import { processIcons } from "./src/pureUI/modules/pureIconPlugin";
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [svelte(), solidJs()],
+	integrations: [svelte(), react()],
 	vite: {
 		resolve: {
 			alias: {
@@ -17,7 +17,7 @@ export default defineConfig({
 			{
 				name: "vite-build-plugin",
 				buildStart() {
-          console.log("Processing icons...");
+					console.log("Processing icons...");
 					processIcons();
 				},
 			},
