@@ -37,7 +37,7 @@
 	class={`window-body ${uiPlatform} ${theme}`}
 	style={`${
 		uiPlatform == "liquidGlass" && type == "buttonbar"
-			? "border-radius: var(--win-corner-large);"
+			? "border-radius: var(--win-corner);"
 			: ""
 	} ${uiPlatform == "liquidGlass" ? "corner-shape: superellipse(1.1);" : ""}`}
 	class:fullContent
@@ -55,7 +55,7 @@
 			{#if uiPlatform == "liquidGlass" && $sidebar}
 				<div class="spacer" style={`width: 50px; flex: none;`}></div>
 			{/if}
-			{#if type == "buttonbar" || type == "toolbar"}
+			{#if type == "toolbar"}
 				<TopBarButton
 					id=""
 					icon="sidebar"
@@ -66,13 +66,13 @@
 					addClass={$sidebar ? "active over-sidebar" : ""}
 				></TopBarButton>
 			{/if}
-			{#if uiPlatform == "mac" && (type == "toolbar" || type == "buttonbar") && $sidebar}
+			{#if uiPlatform == "mac" && (type == "toolbar") && $sidebar}
 				<div
 					class="spacer"
-					style={`width: ${type == "buttonbar" ? 80 : 58}px; flex: none;`}
+					style={`width: 82px; flex: none;`}
 				></div>
 			{/if}
-			{#if (uiPlatform == "win" || uiPlatform == "web") && (type == "toolbar" || type == "buttonbar")}
+			{#if (uiPlatform == "win" || uiPlatform == "web") && (type == "toolbar")}
 				<AppMenu name="File">
 					<AppMenuItem name="Open" id="" accelerator="Ctrl+O"></AppMenuItem>
 					<AppMenuItem name="Save" id="" accelerator="Ctrl+S"></AppMenuItem>
@@ -80,6 +80,21 @@
 					></AppMenuItem>
 					<div class="seperator"></div>
 					<AppMenuItem name="Quit" id="" accelerator="Ctrl+Q"></AppMenuItem>
+				</AppMenu>
+				<AppMenu name="Edit">
+					<AppMenuItem name="Undo" id="" accelerator="Ctrl+Z"></AppMenuItem>
+					<AppMenuItem name="Redo" id="" accelerator="Ctrl+Y"></AppMenuItem>
+					<div class="seperator"></div>
+					<AppMenuItem name="Cut" id="" accelerator="Ctrl+X"></AppMenuItem>
+					<AppMenuItem name="Copy" id="" accelerator="Ctrl+C"></AppMenuItem>
+					<AppMenuItem name="Paste" id="" accelerator="Ctrl+V"></AppMenuItem>
+				</AppMenu>
+				<AppMenu name="View">
+					<AppMenuItem name="Zoom in" id="" accelerator="Ctrl+Plus"></AppMenuItem>
+					<AppMenuItem name="Zoom out" id="" accelerator="Ctrl+Minus"></AppMenuItem>
+					<AppMenuItem name="Reset zoom" id="" accelerator="Ctrl+0"></AppMenuItem>
+					<div class="seperator"></div>
+					<AppMenuItem name="Toggle fullscreen" id="" accelerator="F11"></AppMenuItem>
 				</AppMenu>
 			{/if}
 
@@ -105,7 +120,7 @@
 			{/if}
 			<div class="spacer"></div>
 
-			{#if type == "toolbar" || type == "buttonbar"}
+			{#if type == "toolbar"}
 				<div class="topbar-group">
 					<TopBarButton id="" icon="pause" onClick={() => {}} toolTip=""
 					></TopBarButton>

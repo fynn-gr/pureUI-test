@@ -13,5 +13,16 @@ import Topbars from "../lib/Topbars.tsx";
 	</head>
 	<body>
 		<Topbars client:only="react" />
+
+		<script type="module">
+			let button = document.querySelector(".theme-switch");
+			button.addEventListener("click", () => {
+				if (document.querySelectorAll(".dark").length > 0) {
+					document.querySelectorAll("main").forEach((e) => {e.classList.remove("dark"); e.classList.add("light")});
+				} else {
+					document.querySelectorAll("main").forEach((e) => {e.classList.add("dark"); e.classList.remove("light")});
+				}
+			});
+		</script>
 	</body>
 </html>

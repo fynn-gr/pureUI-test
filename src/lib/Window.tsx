@@ -15,7 +15,6 @@ interface WindowProps {
 	theme: "light" | "dark";
 	type: "default" | "buttonbar" | "toolbar";
 	uiPlatform: "mac" | "win" | "web" | "liquidGlass";
-	largeCorner?: boolean;
 	fullContent?: boolean;
 	sidebar: boolean;
 	setSidebar: (value: boolean) => void;
@@ -29,7 +28,6 @@ const Window: FC<WindowProps> = ({
 	theme,
 	type,
 	uiPlatform,
-	largeCorner = false,
 	fullContent = false,
 	sidebar,
 	setSidebar,
@@ -43,9 +41,6 @@ const Window: FC<WindowProps> = ({
 	};
 
 	const windowStyle: React.CSSProperties = {
-		...(uiPlatform === "liquidGlass" && type === "buttonbar"
-			? { borderRadius: "var(--win-corner-large)" }
-			: {}),
 		...(uiPlatform === "liquidGlass"
 			? ({ cornerShape: "superellipse(1.1)" } as any)
 			: {}),

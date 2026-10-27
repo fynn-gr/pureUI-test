@@ -51,56 +51,15 @@
 		<Window theme="dark" type="default" uiPlatform="mac" />
 	</div>
 	<div class="row">
-		<!-- Mac buttonbar-->
-		<Window theme="light" type="buttonbar" uiPlatform="mac" />
-		<Window theme="dark" type="buttonbar" uiPlatform="mac" />
-	</div>
-	<div class="row">
 		<!-- Mac toolbar-->
 		<Window theme="light" type="toolbar" uiPlatform="mac" />
 		<Window theme="dark" type="toolbar" uiPlatform="mac" />
-	</div>
-	<h3>macOS liquidGlass</h3>
-	<div class="row">
-		<!-- liquidGlass -->
-		<Window
-			theme="light"
-			type="default"
-			uiPlatform="liquidGlass"
-			fullContent={true}
-		/>
-		<Window
-			theme="dark"
-			type="default"
-			uiPlatform="liquidGlass"
-			fullContent={true}
-		/>
-	</div>
-	<div class="row">
-		<Window
-			theme="light"
-			type="buttonbar"
-			uiPlatform="liquidGlass"
-			largeCorner={true}
-			fullContent={true}
-		/>
-		<Window
-			theme="dark"
-			type="buttonbar"
-			uiPlatform="liquidGlass"
-			largeCorner={true}
-			fullContent={true}
-		/>
 	</div>
 	<h3>Windows</h3>
 	<div class="row">
 		<!-- Win -->
 		<Window theme="light" type="default" uiPlatform="win" />
 		<Window theme="dark" type="default" uiPlatform="win" />
-	</div>
-	<div class="row">
-		<Window theme="light" type="buttonbar" uiPlatform="win" />
-		<Window theme="dark" type="buttonbar" uiPlatform="win" />
 	</div>
 	<div class="row">
 		<Window theme="light" type="toolbar" uiPlatform="win" />
@@ -112,7 +71,7 @@
 		<Browser theme="dark"></Browser>
 	</div>
 	<div class="row">
-		<Window theme="light" type="buttonbar" uiPlatform="web" />
-		<Window theme="dark" type="buttonbar" uiPlatform="web" />
+		<Window theme="light" type="toolbar" uiPlatform="web" />
+		<Window theme="dark" type="toolbar" uiPlatform="web" />
 	</div>
 </div>

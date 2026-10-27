@@ -11,8 +11,8 @@
   "dependencies": {
     "@astrojs/react": "^5.0.7",
     "@astrojs/svelte": "^8.1.2",
-    "@tauri-apps/api": "^2.11.0",
-    "astro": "^6.4.6",
+    "@tauri-apps/api": "^2.11.1",
+    "astro": "^6.4.8",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "svelte": "^5.56.3",

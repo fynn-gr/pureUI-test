@@ -1,5 +1,6 @@
 import { useState } from "react";
-import "@/pureUI/scss/index.scss";
+import "../style.scss";
+import "../pureUI/scss/index.scss";
 import Browser from "./Browser";
 import Window from "./Window";
 
@@ -134,7 +135,7 @@ export default function Topbars() {
 					/>
 				</div>
 
-				<h3>macOS liquidGlass</h3>
+				{/*<h3>macOS liquidGlass</h3>
 				<div className="row">
 					<Window
 						theme="light"
@@ -166,7 +167,6 @@ export default function Topbars() {
 						theme="light"
 						type="buttonbar"
 						uiPlatform="liquidGlass"
-						largeCorner
 						fullContent
 						sidebar={sidebar}
 						setSidebar={setSidebar}
@@ -179,7 +179,6 @@ export default function Topbars() {
 						theme="dark"
 						type="buttonbar"
 						uiPlatform="liquidGlass"
-						largeCorner
 						fullContent
 						sidebar={sidebar}
 						setSidebar={setSidebar}
@@ -188,7 +187,7 @@ export default function Topbars() {
 						setSelectedItem={setSelectedItem}
 						folders={folders}
 					/>
-				</div>
+				</div>*/}
 
 				<h3>Windows</h3>
 				<div className="row">
